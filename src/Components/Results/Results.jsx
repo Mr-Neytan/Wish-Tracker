@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import "./results.css"
+
 const Results = (props) => {
+  console.log(`number of primogems ${props.primogems}`)
   let num = Number(props.primogems)
   const [purchasable, setPurchasable] = useState(() => {
     return Math.floor(num/160)
   })
   const [total, setTotal] = useState(() => {
-    return purchasable+props.fates
+    return Number(purchasable)+props.fates
   })
   const [next, setNext] = useState(()=>{
     return 160-(props.primogems % 160)
@@ -14,37 +17,42 @@ const Results = (props) => {
 
   useEffect(() => {
     setPurchasable(Math.floor(props.primogems/160))
-    setTotal(purchasable+props.fates)
+    setTotal(Number(purchasable)+Number(props.fates))
     setNext(160-(props.primogems % 160))
-  },[props.primogems,props.fates])
+  },[props.primogems,props.fates,purchasable])
+
 
     return(
     <>
-    <div>Results</div>
-    <div>
-      <div>
-        <h2>primos</h2>
+    <div className='container'>
+      <h1>Results</h1>
+    
+    <div className='row'>
+      <div id="result_label">
+        <h2>Primogems</h2>
         <p>{props.primogems}</p>
       </div>
-      <div>
-        <h2>fates</h2>
+      <div id="result_label">
+        <h2>Intertwined Fates</h2>
         <p>{props.fates}</p>
       </div>
-
-      <div>
-        <h2>Fates that can be bought</h2>
+      </div>
+      <div className='row'>
+      <div id="result_label">
+        <h2>Purchasable Fates</h2>
         <p>{purchasable}</p>
       </div>
-      <div>
-        <h2>Primos Needed for Next Wish</h2>
+      <div id="result_label">
+        <h2>Primogems for Next Fate</h2>
         <p>{next}</p>
       </div>
     </div>
-
-    <div>
-        <h2>Total</h2>
+    <div className='total'>
+        <h2 >Total</h2>
         <p>{total}</p>
       </div>
+    </div>
+
     </>
   )
 }

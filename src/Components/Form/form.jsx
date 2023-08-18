@@ -33,8 +33,8 @@ const Form = () => {
     <>
     <form onSubmit={(e) => {
         e.preventDefault();
-        setPrimogems(inputs.primo_count)
-        setFates(inputs.intertwined_fates)
+        setPrimogems(Number(inputs.primo_count))
+        setFates(Number(inputs.intertwined_fates))
         }}>
 
         <input type="number" name="primo_count" value={inputs.primo_count || ""} onChange={handleChange} required></input>

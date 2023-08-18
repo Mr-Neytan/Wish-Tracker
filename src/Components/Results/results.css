@@ -1,0 +1,37 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+}
+
+
+
+#result_label {
+    width: 49%;
+    min-width: 150px;
+    height: 200px;
+    border-color: black;
+    border: solid 1px;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+.total {
+    width: 49%;
+    text-align: center;
+    border-color: black;
+    border: solid 1px;
+    border-radius: 10px;
+}
