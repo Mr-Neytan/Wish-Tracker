@@ -54,6 +54,11 @@ const Form = () => {
         <input type="submit" value='Compute!'></input>
     </form>
     <Results primogems={primogems} fates={inter_fates}/>
+    <button onClick={() => {
+      setPrimogems(0)
+      setFates(0)
+      setInputs({})
+    }}>Clear</button>
     </>
   )
 }
