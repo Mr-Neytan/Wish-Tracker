@@ -22,3 +22,20 @@ label {
     font-family: Poppins;
     font-weight: bold;
 }
+
+.submit {
+    cursor: pointer;
+}
+
+.clear {
+    border-radius: 4px;;
+    min-width: 200px;
+    margin: auto;
+    max-width: 300px;
+    font-size: 28px;
+    font-family: Poppins;
+    padding-left: 0.3em;
+    height: 45px;
+    cursor: pointer;
+
+}

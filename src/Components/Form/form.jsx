@@ -51,10 +51,10 @@ const Form = () => {
         <input type="number" min={0} name="primo_count" value={inputs.primo_count || ""} onChange={handleChange}></input>
         <label>Number of Intertwined Fates</label>
         <input type="number" min={0} name="intertwined_fates" value={inputs.intertwined_fates || ""} onChange={handleChange}></input>
-        <input type="submit" value='Compute!'></input>
+        <input type="submit" value='Compute!' className='submit'></input>
     </form>
     <Results primogems={primogems} fates={inter_fates}/>
-    <button onClick={() => {
+    <button className="clear" onClick={() => {
       setPrimogems(0)
       setFates(0)
       setInputs({})

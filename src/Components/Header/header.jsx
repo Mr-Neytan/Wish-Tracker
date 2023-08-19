@@ -1,10 +1,10 @@
 import React from 'react'
-
+import "./header.css"
 const Header = () => {
   return (
     <>
     <div>
-      <h1>header</h1>
+      <h1>Genshin Wish Tracker</h1>
     </div>
     </>
   )
