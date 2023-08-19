@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import Results from '../Results/Results';
+import "./form.css"
+
 
 const Form = () => {
   const [primogems,setPrimogems] = useState(() => {
@@ -33,12 +35,22 @@ const Form = () => {
     <>
     <form onSubmit={(e) => {
         e.preventDefault();
-        setPrimogems(Number(inputs.primo_count))
-        setFates(Number(inputs.intertwined_fates))
+        if (inputs.intertwined_fates){
+          setFates(Number(inputs.intertwined_fates))
+          console.log(`changed fates: ${inputs.intertwined_fates}`)
+        }
+        if (inputs.primo_count){
+          setPrimogems(Number(inputs.primo_count))
+          console.log(`changed primos:${inputs.primo_count};`)
+        }
+        
+        
+        
         }}>
-
-        <input type="number" name="primo_count" value={inputs.primo_count || ""} onChange={handleChange} required></input>
-        <input type="number" name="intertwined_fates" value={inputs.intertwined_fates || ""} onChange={handleChange} required></input>
+        <label>Number of Primogems</label>
+        <input type="number" min={0} name="primo_count" value={inputs.primo_count || ""} onChange={handleChange}></input>
+        <label>Number of Intertwined Fates</label>
+        <input type="number" min={0} name="intertwined_fates" value={inputs.intertwined_fates || ""} onChange={handleChange}></input>
         <input type="submit" value='Compute!'></input>
     </form>
     <Results primogems={primogems} fates={inter_fates}/>
